@@ -1,0 +1,40 @@
+package com.example.myapplication.ui.screen.home.components
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.example.myapplication.ui.screen.home.NoteViewModel
+
+@Composable
+fun AddNoteForm(viewModel: NoteViewModel) {
+
+    val state = viewModel.state.collectAsState().value
+
+        Column(
+            modifier = Modifier.padding(80.dp)
+        ) {
+            OutlinedTextField(
+                value = state.title,
+                onValueChange = { viewModel.updateTitle(it) },
+                label = { Text("Name") }
+            )
+            OutlinedTextField(
+                value = state.content,
+                onValueChange = { viewModel.updateContent(it) },
+                label = { Text("Content") }
+            )
+            Button(onClick = {
+                if (state.title.isNotBlank() && state.content.isNotBlank()) {
+                    viewModel.addNote(state.title, state.content)
+                }
+            }) {
+                Text("Add Note")
+            }
+        }
+}
