@@ -17,13 +17,13 @@ fun NotesApp() {
     MaterialTheme {
         NavHost(
             navController = navController,
-            startDestination = "home"
+            startDestination = Router.Home.route
         ) {
-            composable("home") {
+            composable(Router.Home.route) {
                 HomeScreen(navController = navController)
             }
             composable(
-                "edit_note/{noteId}",
+                Router.EditNote.route,
                 arguments = listOf(navArgument("noteId") { type = NavType.IntType })
             ) { backStackEntry ->
                 val noteId = backStackEntry.arguments?.getInt("noteId") ?: 0
@@ -32,13 +32,13 @@ fun NotesApp() {
                     navController = navController
                 )
             }
-            composable("testOne") {
+            composable(Router.TestOne.route) {
                 TestScreenOne(navController = navController)
             }
-            composable("testTwo") {
+            composable(Router.TestTwo.route) {
                 TestScreenTwo(navController = navController)
             }
-            composable("testThree") {
+            composable(Router.TestThree.route) {
                 TestScreenThree(navController = navController)
             }
         }

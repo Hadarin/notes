@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.navigation.NavHostController
 import com.example.myapplication.ui.screen.home.NoteViewModel
+import com.example.myapplication.ui.screen.home.Router
 
 import org.koin.androidx.compose.koinViewModel
 
@@ -24,7 +25,7 @@ fun HomeScreen(navController: NavHostController) {
             val notes by noteViewModel.notes.collectAsState()
             NoteList(notes,
                 onDelete = { noteViewModel.deleteNote(it) },
-                onEdit = { note -> navController.navigate("edit_note/${note.id}") }
+                onEdit = { note -> navController.navigate(Router.EditNote.createRouteByNoteId(note.id)) }
             )
             Row {
                 Button(

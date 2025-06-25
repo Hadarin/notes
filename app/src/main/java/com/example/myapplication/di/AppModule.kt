@@ -23,16 +23,10 @@ val appModule = module {
         get<NoteDatabase>().noteDao()
     }
 
-//    //Init Repository
-//    factory<NoteRepository> {
-//        NoteRepositoryImpl(dao = get())
-//    }
-
+    //Init Repository
     factory {
         NoteRepositoryImpl(get())
     }
-
-
 
     //Init ViewModel
     viewModel { NoteViewModel(repository = get()) }
