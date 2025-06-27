@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.screen.home.components
+package com.example.myapplication.presentation.screen.home.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,16 +8,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.myapplication.ui.screen.home.NoteViewModel
-import org.koin.androidx.compose.koinViewModel
+import com.example.myapplication.presentation.screen.home.NoteViewModel
 
 @Composable
 fun EditNoteScreen(
     noteId: Int,
     navController: NavController
 ) {
-    val noteViewModel: NoteViewModel = koinViewModel()
+    val noteViewModel: NoteViewModel = hiltViewModel()
 
     Column(
         modifier = Modifier

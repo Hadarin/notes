@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.screen.home.components
+package com.example.myapplication.presentation.screen.home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,24 +12,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavHostController
+import com.example.myapplication.presentation.screen.home.Route
 
 @Composable
-fun TestScreenTwo(navController: NavHostController) {
+fun TestScreenThree(navController: NavHostController) {
     MaterialTheme {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Yellow)
+                .background(Color.Blue)
         ) {
             Text(
-                text = "Test screen 2 text",
+                text = "Test screen 3 text",
                 color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.align(Alignment.Center)
             )
             Button(
                 modifier = Modifier.align(Alignment.BottomStart),
-                onClick = { navController.popBackStack() }
+                onClick = { navController.navigate(Route.TestTwo) }
             ) {
                 Text("Back")
             }

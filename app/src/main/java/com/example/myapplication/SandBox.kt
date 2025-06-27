@@ -29,6 +29,17 @@ import kotlinx.coroutines.runBlocking
 //View model with states without compose remember
 //Implement Hilt instead of Koin
 
+//6/27/2025
+//Serialization under the hood
+//Parselable under the hood
+//Use case in domain layer for Repository
+
+// separate classes data-domain-presentation
+// presentation should know about domain,
+// data should know about domain,
+// domain shouldn't know anyone,
+
+
 fun simple(): Flow<Int> = flow {
     println("Flow started")
     for (i in 1..3) {

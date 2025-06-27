@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.screen.home.components
+package com.example.myapplication.presentation.screen.home.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn

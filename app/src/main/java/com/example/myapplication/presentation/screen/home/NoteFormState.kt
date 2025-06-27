@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.screen.home
+package com.example.myapplication.presentation.screen.home
 
 data class NoteFormState (
     val title: String ="",

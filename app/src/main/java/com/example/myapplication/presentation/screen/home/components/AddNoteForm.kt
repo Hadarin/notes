@@ -1,17 +1,18 @@
-package com.example.myapplication.ui.screen.home.components
+package com.example.myapplication.presentation.screen.home.components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.myapplication.ui.screen.home.NoteViewModel
+import com.example.myapplication.presentation.screen.home.NoteViewModel
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun AddNoteForm(viewModel: NoteViewModel) {
 
