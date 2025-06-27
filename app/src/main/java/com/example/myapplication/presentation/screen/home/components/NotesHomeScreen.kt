@@ -5,18 +5,20 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
+import androidx.compose.runtime.getValue
+import com.example.myapplication.presentation.navigation.AppRouter
+import com.example.myapplication.presentation.navigation.NavigationEffect
 import com.example.myapplication.presentation.screen.home.NoteViewModel
-import com.example.myapplication.presentation.screen.home.Route
+import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.koinInject
 
 @Composable
-fun HomeScreen(navController: NavHostController) {
+fun HomeScreen() {
 
-    val noteViewModel: NoteViewModel = hiltViewModel()
+    val noteViewModel: NoteViewModel = koinViewModel()
+    val router: AppRouter = koinInject()
 
     MaterialTheme {
         Column {
@@ -24,21 +26,21 @@ fun HomeScreen(navController: NavHostController) {
             val notes by noteViewModel.notes.collectAsState()
             NoteList(notes,
                 onDelete = { noteViewModel.deleteNote(it) },
-                onEdit = { note -> navController.navigate(Route.EditNote(note.id)) }
+                onEdit = { note -> router.navigateTo(NavigationEffect.EditNote(note.id)) }
             )
             Row {
                 Button(
-                    onClick = { navController.navigate(Route.TestOne) }
+                    onClick = { router.navigateTo(NavigationEffect.TestOne) }
                 ) {
                     Text("Screen One")
                 }
                 Button(
-                    onClick = { navController.navigate(Route.TestTwo) }
+                    onClick = { router.navigateTo(NavigationEffect.TestTwo) }
                 ) {
                     Text("Screen Two")
                 }
                 Button(
-                    onClick = { navController.navigate(Route.TestThree) }
+                    onClick = { router.navigateTo(NavigationEffect.TestThree) }
                 ) {
                     Text("Screen Three")
                 }

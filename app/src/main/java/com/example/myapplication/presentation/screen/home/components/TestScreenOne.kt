@@ -1,21 +1,25 @@
 package com.example.myapplication.presentation.screen.home.components
 
-import androidx.compose.runtime.Composable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.navigation.NavHostController
-import com.example.myapplication.presentation.screen.home.Route
+import com.example.myapplication.presentation.navigation.AppRouter
+import com.example.myapplication.presentation.navigation.NavigationEffect
+import org.koin.compose.koinInject
 
 @Composable
-fun TestScreenOne(navController: NavHostController) {
+fun TestScreenOne() {
+
+    val router: AppRouter = koinInject()
+
     MaterialTheme {
         Box(
             modifier = Modifier
@@ -30,14 +34,14 @@ fun TestScreenOne(navController: NavHostController) {
             )
             Button(
                 modifier = Modifier.align(Alignment.BottomStart),
-                onClick = { navController.navigate(Route.Home)
+                onClick = { router.navigateTo(NavigationEffect.Back)
                 }
             ) {
                 Text("Back")
             }
             Button(
                 modifier = Modifier.align(Alignment.BottomEnd),
-                onClick = { navController.navigate(Route.TestTwo)
+                onClick = { router.navigateTo(NavigationEffect.TestTwo)
                 }
             ) {
                 Text("Screen 2")

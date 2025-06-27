@@ -1,4 +1,4 @@
-package com.example.myapplication.presentation.screen.home
+package com.example.myapplication.presentation.navigation
 
 import kotlinx.serialization.Serializable
 

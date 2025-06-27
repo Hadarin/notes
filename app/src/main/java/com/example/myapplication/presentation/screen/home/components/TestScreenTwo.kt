@@ -11,11 +11,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.navigation.NavHostController
-import com.example.myapplication.presentation.screen.home.Route
+import com.example.myapplication.presentation.navigation.AppRouter
+import com.example.myapplication.presentation.navigation.NavigationEffect
+import org.koin.compose.koinInject
 
 @Composable
-fun TestScreenTwo(navController: NavHostController) {
+fun TestScreenTwo() {
+
+    val router: AppRouter = koinInject()
+
     MaterialTheme {
         Box(
             modifier = Modifier
@@ -30,13 +34,13 @@ fun TestScreenTwo(navController: NavHostController) {
             )
             Button(
                 modifier = Modifier.align(Alignment.BottomStart),
-                onClick = { navController.navigate(Route.TestOne) }
+                onClick = { router.navigateTo(NavigationEffect.TestOne) }
             ) {
                 Text("Back")
             }
             Button(
                 modifier = Modifier.align(Alignment.BottomEnd),
-                onClick = { navController.navigate(Route.TestThree) }
+                onClick = { router.navigateTo(NavigationEffect.TestThree) }
             ) {
                 Text("Screen 3")
             }

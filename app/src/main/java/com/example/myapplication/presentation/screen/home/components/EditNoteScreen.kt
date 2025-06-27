@@ -8,16 +8,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
-import com.example.myapplication.presentation.screen.home.NoteViewModel
+import com.example.myapplication.presentation.navigation.AppRouter
+import com.example.myapplication.presentation.navigation.NavigationEffect
+import org.koin.compose.koinInject
 
 @Composable
 fun EditNoteScreen(
     noteId: Int,
-    navController: NavController
-) {
-    val noteViewModel: NoteViewModel = hiltViewModel()
+)
+{
+    val router: AppRouter = koinInject()
 
     Column(
         modifier = Modifier
@@ -27,7 +27,7 @@ fun EditNoteScreen(
         Text("Edit Note with ID: $noteId")
 
         Button(
-            onClick = { navController.popBackStack() }
+            onClick = { router.navigateTo(NavigationEffect.Back) }
         ) {
             Text("Back")
         }
