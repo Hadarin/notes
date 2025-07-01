@@ -7,8 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.presentation.screen.home.NotesApp
-import com.example.myapplication.presentation.theme.MyApplicationTheme
+import com.presentation.theme.MyApplicationTheme
+import com.presentation.screen.home.NotesApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
