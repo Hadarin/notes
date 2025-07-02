@@ -38,6 +38,8 @@ import kotlinx.coroutines.runBlocking
 // data should know about domain,
 // domain shouldn't know anyone,
 
+//8/1/2025 - manifest tags, create service in manifest
+
 
 fun simple(): Flow<Int> = flow {
     println("Flow started")

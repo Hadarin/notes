@@ -38,6 +38,10 @@ android {
 dependencies {
     implementation(project(":domain"))
 
+    //biometrics
+    implementation(libs.androidx.biometric)
+
+
     // Core Android
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
