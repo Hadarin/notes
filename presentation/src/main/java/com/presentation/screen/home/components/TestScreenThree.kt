@@ -21,11 +21,13 @@ fun TestScreenThree() {
     val router: AppRouter = koinInject()
 
     MaterialTheme {
+
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.Blue)
-        ) {
+        )
+        {
             Text(
                 text = "Test screen 3 text",
                 color = MaterialTheme.colorScheme.onBackground,

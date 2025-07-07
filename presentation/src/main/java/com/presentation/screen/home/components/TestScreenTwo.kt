@@ -1,5 +1,6 @@
 package com.presentation.screen.home.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import com.presentation.navigation.AppRouter
 import com.presentation.navigation.NavigationEffect
+import com.presentation.screen.home.components.camera.CameraButton
 import org.koin.compose.koinInject
 
 @Composable
@@ -38,6 +40,18 @@ fun TestScreenTwo() {
             ) {
                 Text("Back")
             }
+            CameraButton(
+                modifier = Modifier.align(Alignment.BottomCenter),
+                onCameraResult = { uri ->
+                    if (uri != null) {
+                        // Handle the captured photo URI
+                        Log.d("Camera", "Photo saved at: $uri")
+                    } else {
+                        // Handle case where photo wasn't taken
+                        Log.d("Camera", "Photo not taken")
+                    }
+                }
+            )
             Button(
                 modifier = Modifier.align(Alignment.BottomEnd),
                 onClick = { router.navigateTo(NavigationEffect.TestThree) }

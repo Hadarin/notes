@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.sandbox
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -41,6 +41,8 @@ import kotlinx.coroutines.runBlocking
 //8/1/2025 - manifest tags, create service in manifest
 
 
+//7/72025 - Worker, API requests from android app (Gson, retrofit, okhttp) and show the data on screen
+
 fun simple(): Flow<Int> = flow {
     println("Flow started")
     for (i in 1..3) {
@@ -61,18 +63,12 @@ fun createFlow(): Flow<Int> = flow {
     }
 }.flowOn(Dispatchers.Default) // Flow will emit from background thread
 
-fun main(): Unit = runBlocking {
-    val flow = createFlow()
+fun main() {
 
-    launch {
-        flow.collect { value ->
-            println("Collector 1 received: $value on ${Thread.currentThread().name}")
-        }
+    for (i in 1..3) {
+        Thread.sleep(2000)
+        println(i)
     }
 
-    launch {
-        flow.collect { value ->
-            println("Collector 2 received: $value on ${Thread.currentThread().name}")
-        }
-    }
 }
+
