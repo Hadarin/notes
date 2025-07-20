@@ -34,7 +34,12 @@ android {
 }
 
 dependencies {
+    implementation(libs.socket.io.client) {
+        exclude(group = "org.json", module = "json")
+    }
     implementation(project(":domain"))
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)

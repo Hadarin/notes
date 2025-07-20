@@ -1,7 +1,7 @@
 package com.data.mapper
 
 import com.domain.model.NoteModel
-import com.data.entity.NoteEntity
+import com.data.model.NoteEntity
 
 fun NoteEntity.toDomainModel(): NoteModel {
     return NoteModel(

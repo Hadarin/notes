@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    id("com.google.gms.google-services")
+    id("kotlin-parcelize")
     kotlin("kapt")
 }
 
@@ -42,6 +44,11 @@ android {
 }
 
 dependencies {
+    // Firebase libraries (versions managed by BOM)
+    implementation (libs.firebase.messaging.ktx)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+
     implementation(project(":presentation"))
     implementation(project(":domain"))
     implementation(project(":data"))

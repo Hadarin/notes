@@ -13,6 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import com.presentation.navigation.AppRouter
 import com.presentation.navigation.NavigationEffect
+import com.presentation.screen.geolocation.GoogleApiLocationScreen
+import com.presentation.screen.socket.ChatScreen
 import org.koin.compose.koinInject
 
 @Composable
@@ -25,15 +27,11 @@ fun TestScreenThree() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Blue)
+                .background(Color.Gray)
         )
         {
-            Text(
-                text = "Test screen 3 text",
-                color = MaterialTheme.colorScheme.onBackground,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.align(Alignment.Center)
-            )
+            ChatScreen()
+            GoogleApiLocationScreen()
             Button(
                 modifier = Modifier.align(Alignment.BottomStart),
                 onClick = { router.navigateTo(NavigationEffect.TestTwo) }

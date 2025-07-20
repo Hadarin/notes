@@ -6,8 +6,11 @@
         android:required="true" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:name=".MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -29,7 +32,22 @@
             </intent-filter>
         </activity>
         <service
+            android:name="com.service.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- THIS IS THE FIX FOR THE WARNING! -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+        <service
             android:name="com.service.TestService"
+            android:exported="false" />
+        <service
+            android:name="com.service.MyForegroundService"
+            android:foregroundServiceType="dataSync"
             android:exported="false" />
         <provider
             android:name="androidx.core.content.FileProvider"

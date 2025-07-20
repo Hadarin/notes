@@ -11,6 +11,7 @@ import com.presentation.navigation.NavigationEffect
 import com.presentation.navigation.Route
 import com.presentation.screen.home.components.EditNoteScreen
 import com.presentation.screen.home.components.HomeScreen
+import com.presentation.screen.home.components.NotificationScreen
 import com.presentation.screen.home.components.TestScreenOne
 import com.presentation.screen.home.components.TestScreenThree
 import com.presentation.screen.home.components.TestScreenTwo
@@ -32,6 +33,7 @@ fun NotesApp() {
                 NavigationEffect.TestOne -> navController.navigate(Route.TestOne)
                 NavigationEffect.TestThree -> navController.navigate(Route.TestThree)
                 NavigationEffect.TestTwo -> navController.navigate(Route.TestTwo)
+                NavigationEffect.FireBase -> navController.navigate(Route.NotificationScreen)
             }
         }
     }
@@ -58,6 +60,9 @@ fun NotesApp() {
             }
             composable<Route.TestThree> {
                 TestScreenThree()
+            }
+            composable<Route.NotificationScreen> {
+                NotificationScreen()
             }
         }
     }

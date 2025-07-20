@@ -16,5 +16,8 @@ sealed interface Route {
     object TestThree : Route
 
     @Serializable
+    object NotificationScreen : Route
+
+    @Serializable
     data class EditNote(val noteId: Int) : Route
 }

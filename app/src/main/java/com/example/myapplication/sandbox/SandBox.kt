@@ -43,32 +43,31 @@ import kotlinx.coroutines.runBlocking
 
 //7/72025 - Worker, API requests from android app (Gson, retrofit, okhttp) and show the data on screen
 
-fun simple(): Flow<Int> = flow {
-    println("Flow started")
-    for (i in 1..3) {
-        delay(2000)
-        emit(i)
-    }
-}
+//7/7/2025 - try the socket connection, don't forget to use Flow and Result for rest data, try clock alarm (I need a work when app is closed)
+//7/8/2025 - Get geolocation on the smartphone (google console, get key from geo-location-api and use it for google api
+//7/9/2025 - firebase, push notification via button click
+/*
+7/10/2025
+1. Try to send attributes from firebase inside the push notification
+2. OnMessageReceived - try to prepare the bundle from the attribute data using PersonInfo data class as smthg like dto
+(Serializable or Parcelable)
+3. Then, in the main activity try to get the person info from bundle and display it on the screen
+ */
 
-suspend fun performRequest(request: Int): String {
-    delay(1000) // imitate long-running asynchronous work
-    return "response $request"
-}
+data class PersonInfo (
+        val name : String,
+        val age : Int,
+        val latitude : Float,
+        val amount : Double,
+        val isEnabled : Boolean,
+        val id : Long
+        )
 
-fun createFlow(): Flow<Int> = flow {
-    repeat(3) {
-        delay(1000) // Simulate work
-        emit(it)
-    }
-}.flowOn(Dispatchers.Default) // Flow will emit from background thread
-
-fun main() {
-
-    for (i in 1..3) {
-        Thread.sleep(2000)
-        println(i)
-    }
-
-}
-
+//7/14//2025 -
+// CoroutineContext,
+// Job, CoroutineScope,
+// Coroutines itself,
+// Flow, SharedFlow,
+// Channel,
+// StateFlow,
+// Coroutine Dispatchers

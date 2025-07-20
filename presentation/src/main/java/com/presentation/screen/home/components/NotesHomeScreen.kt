@@ -44,6 +44,11 @@ fun HomeScreen() {
                 ) {
                     Text("Screen Three")
                 }
+                Button(
+                    onClick = { router.navigateTo(NavigationEffect.FireBase) }
+                ) {
+                    Text("Firebase Screen")
+                }
             }
         }
     }

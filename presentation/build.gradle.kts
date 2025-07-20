@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -38,6 +39,14 @@ android {
 dependencies {
     implementation(project(":domain"))
 
+
+    implementation(libs.okhttp)
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
+    //Worker
+    implementation (libs.androidx.work.runtime.ktx)
+
     //biometrics
     implementation(libs.androidx.biometric)
 
@@ -62,6 +71,7 @@ dependencies {
     // Koin
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
+    implementation(libs.google.firebase.messaging.ktx)
 
     // Test dependencies
     testImplementation(libs.junit)
